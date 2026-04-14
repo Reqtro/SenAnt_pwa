@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sensor de Nível - Ed. Antares</title>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2196f3">
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 10px;
+      width: 80%;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .erro {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <img src="imagem.png" alt="Logo">
+
+    <input type="number" id="senha" placeholder="Digite a senha">
+
+    <button onclick="verificarSenha()">Entrar</button>
+
+    <div id="erro" class="erro"></div>
+  </div>
+
+  <script>
+    async function verificarSenha() {
+      const senha = document.getElementById("senha").value;
+
+      if (!senha) {
+        document.getElementById("erro").innerText = "Digite a senha!";
+        return;
+      }
+
+      try {
+        const resposta = await fetch("https://script.google.com/macros/s/AKfycbyy-CGV4e5DANzEpUa_1owGjBqmEGIdMgZKaHO2ZyqZNqxb4qzpPR5VHNEvqJShOziAcw/exec");
+        const dados = await resposta.json();
+
+        const senhaPlanilha = dados.C1;
+
+        if (Number(senha) === Number(senhaPlanilha)) {
+          window.location.href = "app.html";
+        } else {
+          document.getElementById("erro").innerText = "Senha Incorreta!";
+        }
+
+      } catch (erro) {
+        document.getElementById("erro").innerText = "Erro ao conectar!";
+      }
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+
+</body>
+</html>
