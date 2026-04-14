@@ -13,6 +13,7 @@
       background: #e9ecef;
     }
 
+    /* HEADER */
     .header {
       background: white;
       padding: 15px;
@@ -25,20 +26,20 @@
       z-index: 100;
     }
 
-    /* GRID PRINCIPAL */
+    /* GRID DASHBOARD */
     .dashboard {
       max-width: 1100px;
       margin: 20px auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 15px;
+      gap: 12px;
       padding: 0 10px;
     }
 
     .card {
       background: white;
       border-radius: 12px;
-      padding: 10px;
+      padding: 5px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.08);
       display: flex;
       justify-content: center;
@@ -53,32 +54,43 @@
       border-radius: 10px;
     }
 
-    /* 🔥 PRIMEIRO BLOCO (GRÁFICO GRANDE) */
+    /* 🔥 GRÁFICO 1 */
     .grande {
       height: 420px;
     }
 
     .grande iframe {
-      transform: scale(1.2); /* ZOOM */
+      transform: scale(1.05);
       transform-origin: center;
     }
 
-    /* 🔥 BLOCO EMPILHADO */
+    /* 🔥 COLUNA (2 e 3) */
     .coluna {
       display: flex;
       flex-direction: column;
-      gap: 0; /* SEM ESPAÇO */
+      gap: 5px;
       height: 420px;
     }
 
     .coluna .card {
       height: 50%;
-      border-radius: 12px;
+      padding: 2px;
+    }
+
+    .coluna iframe {
+      transform: scale(1.02);
     }
 
     /* RESTO */
     .normal {
-      height: 280px;
+      height: 260px;
+    }
+
+    .rodape {
+      text-align: center;
+      margin: 25px 0;
+      color: #555;
+      font-size: 14px;
     }
 
     /* RESPONSIVO */
@@ -92,37 +104,32 @@
       }
 
       .coluna .card {
-        height: 250px;
+        height: 240px;
       }
 
       .grande {
         height: 300px;
       }
     }
-
-    .rodape {
-      text-align: center;
-      margin: 30px 0;
-      color: #555;
-      font-size: 14px;
-    }
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <div class="header">
     Sensor de Nível - Ed. Antares
   </div>
 
+  <!-- DASHBOARD -->
   <div class="dashboard">
 
-    <!-- 🔥 GRÁFICO GRANDE -->
+    <!-- 🔥 GRÁFICO 1 -->
     <div class="card grande">
       <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGQUHrkneAPzQ8_mkF7whwPMJBD_YOEoW9-a717T00lGm8w0J0wpUjgkHkZPh_rU9goDdBhD5bU5u0/pubchart?oid=117157366&format=interactive"></iframe>
     </div>
 
-    <!-- 🔥 COLUNA EMPILHADA -->
+    <!-- 🔥 GRÁFICO 2 + 3 -->
     <div class="coluna">
 
       <div class="card">
@@ -135,17 +142,19 @@
 
     </div>
 
-    <!-- RESTO -->
+    <!-- 🔥 GRÁFICO 4 -->
     <div class="card normal">
       <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGQUHrkneAPzQ8_mkF7whwPMJBD_YOEoW9-a717T00lGm8w0J0wpUjgkHkZPh_rU9goDdBhD5bU5u0/pubchart?oid=1880428525&format=interactive"></iframe>
     </div>
 
+    <!-- 🔥 GRÁFICO 5 -->
     <div class="card normal">
       <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGQUHrkneAPzQ8_mkF7whwPMJBD_YOEoW9-a717T00lGm8w0J0wpUjgkHkZPh_rU9goDdBhD5bU5u0/pubchart?oid=1239868453&format=interactive"></iframe>
     </div>
 
   </div>
 
+  <!-- RODAPÉ -->
   <div class="rodape">
     RT Technology - 14/04/2026
   </div>
