@@ -26,29 +26,39 @@
       z-index: 100;
     }
 
-    /* DASHBOARD */
+    /* DASHBOARD GRID */
     .dashboard {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 20px auto;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 por linha */
       gap: 15px;
       padding: 0 10px;
     }
 
-    /* CARD DOS GRÁFICOS */
+    /* CARD */
     .card {
       background: white;
       border-radius: 12px;
       padding: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     iframe {
       width: 100%;
-      height: 300px;
+      height: 280px;
       border: none;
       border-radius: 10px;
+    }
+
+    /* RESPONSIVO (celular) */
+    @media (max-width: 700px) {
+      .dashboard {
+        grid-template-columns: 1fr; /* 1 por linha no celular */
+      }
     }
 
     /* RODAPÉ */
@@ -87,7 +97,8 @@
       <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGQUHrkneAPzQ8_mkF7whwPMJBD_YOEoW9-a717T00lGm8w0J0wpUjgkHkZPh_rU9goDdBhD5bU5u0/pubchart?oid=1880428525&format=interactive"></iframe>
     </div>
 
-    <div class="card">
+    <!-- Último gráfico ocupa linha inteira -->
+    <div class="card" style="grid-column: span 2;">
       <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGQUHrkneAPzQ8_mkF7whwPMJBD_YOEoW9-a717T00lGm8w0J0wpUjgkHkZPh_rU9goDdBhD5bU5u0/pubchart?oid=1239868453&format=interactive"></iframe>
     </div>
 
@@ -105,11 +116,9 @@
       iframes.forEach(iframe => {
         iframe.src = iframe.src.split('?')[0] + '?t=' + new Date().getTime();
       });
-
-      console.log("Atualizado");
     }
 
-    setInterval(atualizarGraficos, 300000); // 5 minutos
+    setInterval(atualizarGraficos, 300000);
   </script>
 
 </body>
