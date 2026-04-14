@@ -13,7 +13,6 @@
       background: #e9ecef;
     }
 
-    /* HEADER */
     .header {
       background: white;
       padding: 15px;
@@ -21,12 +20,8 @@
       font-size: 20px;
       font-weight: bold;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
 
-    /* GRID DASHBOARD */
     .dashboard {
       max-width: 1100px;
       margin: 20px auto;
@@ -48,42 +43,77 @@
     }
 
     iframe {
-      width: 50%;
-      height: 100%;
       border: none;
       border-radius: 10px;
     }
 
-    /* 🔥 GRÁFICO 1 */
-    .grande {
+    /* 🔥 CONFIGURAÇÃO INDIVIDUAL */
+
+    /* ===== GRÁFICO 1 ===== */
+    .g1 {
       height: 200px;
     }
 
-    .grande iframe {
-      transform: scale(1);
-      transform-origin: left;
+    .g1 iframe {
+      width: 120%;                 /* controla largura */
+      height: 120%;                /* controla altura */
+      transform: scale(1.1) translate(10px, -10px); 
+      /* ↑ scale = zoom
+         ↑ translate(x, y) = posição */
+      transform-origin: center;
     }
 
-    /* 🔥 COLUNA (2 e 3) */
+    /* ===== GRÁFICO 2 ===== */
+    .g2 {
+      height: 120px;
+    }
+
+    .g2 iframe {
+      width: 110%;
+      height: 110%;
+      transform: scale(1.0) translate(0px, 0px);
+      transform-origin: center;
+    }
+
+    /* ===== GRÁFICO 3 ===== */
+    .g3 {
+      height: 120px;
+    }
+
+    .g3 iframe {
+      width: 110%;
+      height: 110%;
+      transform: scale(1.0) translate(0px, -5px);
+      transform-origin: center;
+    }
+
+    /* ===== GRÁFICO 4 ===== */
+    .g4 {
+      height: 260px;
+    }
+
+    .g4 iframe {
+      width: 100%;
+      height: 100%;
+      transform: scale(1);
+    }
+
+    /* ===== GRÁFICO 5 ===== */
+    .g5 {
+      height: 260px;
+    }
+
+    .g5 iframe {
+      width: 100%;
+      height: 100%;
+      transform: scale(1);
+    }
+
+    /* COLUNA */
     .coluna {
       display: flex;
       flex-direction: column;
       gap: 5px;
-      height: 250px;
-    }
-
-    .coluna .card {
-      height: 30%;
-      padding: 2px;
-    }
-
-    .coluna iframe {
-      transform: scale(1.02);
-    }
-
-    /* RESTO */
-    .normal {
-      height: 260px;
     }
 
     .rodape {
@@ -92,69 +122,49 @@
       color: #555;
       font-size: 14px;
     }
-
-    /* RESPONSIVO */
-    @media (max-width: 700px) {
-      .dashboard {
-        grid-template-columns: 1fr;
-      }
-
-      .coluna {
-        height: auto;
-      }
-
-      .coluna .card {
-        height: 240px;
-      }
-
-      .grande {
-        height: 300px;
-      }
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
   <div class="header">
     Sensor de Nível - Ed. Antares
   </div>
 
-  <!-- DASHBOARD -->
   <div class="dashboard">
 
-    <!-- 🔥 GRÁFICO 1 -->
-    <div class="card grande">
+    <!-- GRÁFICO 1 -->
+    <div class="card g1">
       <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGQUHrkneAPzQ8_mkF7whwPMJBD_YOEoW9-a717T00lGm8w0J0wpUjgkHkZPh_rU9goDdBhD5bU5u0/pubchart?oid=117157366&format=interactive"></iframe>
     </div>
 
-    <!-- 🔥 GRÁFICO 2 + 3 -->
+    <!-- COLUNA -->
     <div class="coluna">
 
-      <div class="card">
+      <!-- GRÁFICO 2 -->
+      <div class="card g2">
         <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGQUHrkneAPzQ8_mkF7whwPMJBD_YOEoW9-a717T00lGm8w0J0wpUjgkHkZPh_rU9goDdBhD5bU5u0/pubchart?oid=1264620463&format=interactive"></iframe>
       </div>
 
-      <div class="card">
+      <!-- GRÁFICO 3 -->
+      <div class="card g3">
         <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGQUHrkneAPzQ8_mkF7whwPMJBD_YOEoW9-a717T00lGm8w0J0wpUjgkHkZPh_rU9goDdBhD5bU5u0/pubchart?oid=738304452&format=interactive"></iframe>
       </div>
 
     </div>
 
-    <!-- 🔥 GRÁFICO 4 -->
-    <div class="card normal">
+    <!-- GRÁFICO 4 -->
+    <div class="card g4">
       <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGQUHrkneAPzQ8_mkF7whwPMJBD_YOEoW9-a717T00lGm8w0J0wpUjgkHkZPh_rU9goDdBhD5bU5u0/pubchart?oid=1880428525&format=interactive"></iframe>
     </div>
 
-    <!-- 🔥 GRÁFICO 5 -->
-    <div class="card normal">
+    <!-- GRÁFICO 5 -->
+    <div class="card g5">
       <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGQUHrkneAPzQ8_mkF7whwPMJBD_YOEoW9-a717T00lGm8w0J0wpUjgkHkZPh_rU9goDdBhD5bU5u0/pubchart?oid=1239868453&format=interactive"></iframe>
     </div>
 
   </div>
 
-  <!-- RODAPÉ -->
   <div class="rodape">
     RT Technology - 14/04/2026
   </div>
