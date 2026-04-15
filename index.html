@@ -15,43 +15,60 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
 
     .container {
+      width: 95%; /* 🔥 ocupa 95% da tela */
       text-align: center;
       background: white;
-      padding: 300px;
+      padding: 40px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
+    /* 🔥 TEXTOS SUPERIORES */
+    .titulo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .titulo div {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
     img {
-      width: 500px;
-      margin-bottom: 150px;
+      width: 300px;
+      margin: 20px 0;
     }
 
     input {
-      padding: 50px;
+      padding: 20px;
       width: 80%;
       text-align: center;
-      font-size: 50px;
-      margin-bottom: 80px;
+      font-size: 30px;
+      margin-bottom: 20px;
+      border: 3px solid black; /* 🔥 borda preta */
+      border-radius: 8px;
     }
 
     button {
-      padding: 50px;
+      padding: 20px;
       width: 80%;
       background: green;
       color: white;
       border: none;
       border-radius: 10px;
-      font-size: 60px;
+      font-size: 30px;
       cursor: pointer;
     }
 
     .erro {
       color: red;
-      margin-top: 25px;
+      margin-top: 20px;
+      font-size: 40px; /* 🔥 fonte grande */
+      font-weight: bold;
     }
   </style>
 </head>
@@ -59,9 +76,18 @@
 <body>
 
   <div class="container">
+
+    <!-- 🔥 TEXTOS -->
+    <div class="titulo">
+      <div>Condômínio Morada do Sol</div>
+      <div>Edifício Antares</div>
+      <div>Sensor de Nível da Caixa D'água</div>
+    </div>
+
     <img src="imagem.png" alt="Logo">
 
-    <input type="number" id="senha" placeholder="Digite a senha">
+    <!-- 🔥 SENHA COM ASTERISCOS -->
+    <input type="password" id="senha" placeholder="Digite a senha">
 
     <button onclick="verificarSenha()">Entrar</button>
 
