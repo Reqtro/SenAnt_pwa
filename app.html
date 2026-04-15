@@ -13,7 +13,7 @@
       margin: 0;
       font-family: Arial;
       background: #e9ecef;
-      overflow-y: scroll; /* força a barra */
+      overflow-y: scroll;
     }
 
     .header {
@@ -89,6 +89,7 @@
     /* ===== GRÁFICO 4 ===== */
     .g4 {
       height: 300px;
+      grid-column: span 2; /* 🔥 ocupa linha inteira */
     }
 
     .g4 iframe {
@@ -100,6 +101,7 @@
     /* ===== GRÁFICO 5 ===== */
     .g5 {
       height: 300px;
+      grid-column: span 2; /* 🔥 ocupa linha inteira */
     }
 
     .g5 iframe {
@@ -151,12 +153,12 @@
 
     </div>
 
-    <!-- GRÁFICO 4 -->
+    <!-- GRÁFICO 4 (linha inteira) -->
     <div class="card g4">
       <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGQUHrkneAPzQ8_mkF7whwPMJBD_YOEoW9-a717T00lGm8w0J0wpUjgkHkZPh_rU9goDdBhD5bU5u0/pubchart?oid=1880428525&format=interactive"></iframe>
     </div>
 
-    <!-- GRÁFICO 5 -->
+    <!-- GRÁFICO 5 (linha inteira) -->
     <div class="card g5">
       <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGQUHrkneAPzQ8_mkF7whwPMJBD_YOEoW9-a717T00lGm8w0J0wpUjgkHkZPh_rU9goDdBhD5bU5u0/pubchart?oid=1239868453&format=interactive"></iframe>
     </div>
