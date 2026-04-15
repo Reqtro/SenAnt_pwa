@@ -2,9 +2,12 @@
   "name": "Sensor de Nível",
   "short_name": "Sensor Nível",
   "start_url": "/index.html",
+  "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "background_color": "#ffffff",
   "theme_color": "#2196f3",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "android-chrome-192x192.png",
