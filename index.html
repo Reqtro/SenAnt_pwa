@@ -70,7 +70,6 @@
       font-weight: bold;
     }
 
-    /* 🔥 TEXTO FIXO */
     .rodape-fixo {
       margin-top: 60px;
       font-size: 30px;
@@ -86,14 +85,13 @@
   <div class="container">
 
     <div class="titulo">
-      <div>Condômínio Morada do Sol</div>
+      <div>Condomínio Morada do Sol</div>
       <div>Edifício Antares</div>
       <div>Sensor de Nível da Caixa D'água</div>
     </div>
 
     <img src="imagem.png" alt="Logo">
 
-    <!-- 🔥 APENAS NÚMEROS -->
     <input 
       type="password" 
       id="senha" 
@@ -106,7 +104,6 @@
 
     <div id="erro" class="erro"></div>
 
-    <!-- 🔥 TEXTO FIXO -->
     <div class="rodape-fixo">
       RT Technology
     </div>
@@ -115,6 +112,15 @@
 
   <script>
     const inputSenha = document.getElementById("senha");
+    const erro = document.getElementById("erro");
+
+    // 🔥 LIMPAR AO CLICAR
+    inputSenha.addEventListener("focus", function() {
+      if (inputSenha.value) {
+        inputSenha.value = "";
+      }
+      erro.innerText = "";
+    });
 
     // 🔥 BOTÃO "IR" DO TECLADO
     inputSenha.addEventListener("keypress", function(e) {
@@ -127,7 +133,7 @@
       const senha = inputSenha.value;
 
       if (!senha) {
-        document.getElementById("erro").innerText = "Digite a senha!";
+        erro.innerText = "Digite a senha!";
         return;
       }
 
@@ -140,7 +146,7 @@
         if (Number(senha) === Number(senhaPlanilha)) {
           window.location.href = "app.html";
         } else {
-          document.getElementById("erro").innerText = "Senha Incorreta!";
+          erro.innerText = "Senha Incorreta!";
         }
 
       } catch (erro) {
