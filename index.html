@@ -19,7 +19,7 @@
     }
 
     .container {
-      width: 95%; /* 🔥 ocupa 95% da tela */
+      width: 95%;
       text-align: center;
       background: white;
       padding: 40px;
@@ -27,7 +27,6 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    /* 🔥 TEXTOS SUPERIORES */
     .titulo {
       text-align: center;
       margin-bottom: 80px;
@@ -49,7 +48,7 @@
       text-align: center;
       font-size: 50px;
       margin-bottom: 20px;
-      border: 3px solid black; /* 🔥 borda preta */
+      border: 3px solid black;
       border-radius: 8px;
     }
 
@@ -67,8 +66,17 @@
     .erro {
       color: red;
       margin-top: 20px;
-      font-size: 40px; /* 🔥 fonte grande */
+      font-size: 40px;
       font-weight: bold;
+    }
+
+    /* 🔥 TEXTO FIXO */
+    .rodape-fixo {
+      margin-top: 40px;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      color: #333;
     }
   </style>
 </head>
@@ -77,7 +85,6 @@
 
   <div class="container">
 
-    <!-- 🔥 TEXTOS -->
     <div class="titulo">
       <div>Condômínio Morada do Sol</div>
       <div>Edifício Antares</div>
@@ -86,17 +93,38 @@
 
     <img src="imagem.png" alt="Logo">
 
-    <!-- 🔥 SENHA COM ASTERISCOS -->
-    <input type="password" id="senha" placeholder="Digite a senha">
+    <!-- 🔥 APENAS NÚMEROS -->
+    <input 
+      type="password" 
+      id="senha" 
+      placeholder="Digite a senha"
+      inputmode="numeric"
+      pattern="[0-9]*"
+    >
 
-    <button onclick="verificarSenha()">Entrar</button>
+    <button onclick="verificarSenha()">ENTRAR</button>
 
     <div id="erro" class="erro"></div>
+
+    <!-- 🔥 TEXTO FIXO -->
+    <div class="rodape-fixo">
+      RT Technology
+    </div>
+
   </div>
 
   <script>
+    const inputSenha = document.getElementById("senha");
+
+    // 🔥 BOTÃO "IR" DO TECLADO
+    inputSenha.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        verificarSenha();
+      }
+    });
+
     async function verificarSenha() {
-      const senha = document.getElementById("senha").value;
+      const senha = inputSenha.value;
 
       if (!senha) {
         document.getElementById("erro").innerText = "Digite a senha!";
